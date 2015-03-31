@@ -3,6 +3,7 @@ package com.hello.learning.siriclone;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -80,6 +81,20 @@ public class MainActivity extends Activity implements AIListener {
     @Override
     public void onResult(AIResponse response) {
 
+        // If all is well, do this!
+        if (!(response.isError())) {
+
+            // This holds all the goods
+            Result result = response.getResult();
+            String userSpeechStr = result.getResolvedQuery();
+
+            Log.i("User speech: ", result.getResolvedQuery());
+
+            userWordsTV.setText(userSpeechStr);
+
+            // Now, start interpreting the speech and executing commands based on it.
+
+        }
 
 
     }
