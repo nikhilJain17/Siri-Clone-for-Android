@@ -56,6 +56,9 @@ public class MainActivity extends Activity implements AIListener {
     // The onClick listener for the blue microphone button
     public void onBlueMicClick(View view) {
 
+        // Reset the computer's words for a new query
+        computerWordsTV.setText("");
+
 
     // Listen for the inputs
     // Figure out what to do with them
@@ -86,13 +89,14 @@ public class MainActivity extends Activity implements AIListener {
 
             // This holds all the goods
             Result result = response.getResult();
-            String userSpeechStr = result.getResolvedQuery() ;
+            String userSpeechStr = result.getResolvedQuery();
 
             Log.i("User speech: ", result.getResolvedQuery());
 
             userWordsTV.setText(userSpeechStr);
 
             // Now, start interpreting the speech and executing commands based on it.
+
 
         }
 

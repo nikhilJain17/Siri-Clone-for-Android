@@ -28,13 +28,16 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="34dp"
-        android:background="#b686e7ff" />
+        android:padding="15dp"
+        android:background="#b686e7ff"
+        android:textSize="15pt"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text=""
+        android:textSize="15pt"
         android:id="@+id/computerWords"
         android:layout_below="@+id/userWords"
         android:layout_alignParentLeft="true"
@@ -43,6 +46,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:padding="15dp"
         android:background="#a73481fa" />
 
 </RelativeLayout>
