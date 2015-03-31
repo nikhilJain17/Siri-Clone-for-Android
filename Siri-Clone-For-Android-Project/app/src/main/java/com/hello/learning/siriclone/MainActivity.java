@@ -86,7 +86,7 @@ public class MainActivity extends Activity implements AIListener {
 
             // This holds all the goods
             Result result = response.getResult();
-            String userSpeechStr = result.getResolvedQuery();
+            String userSpeechStr = result.getResolvedQuery() ;
 
             Log.i("User speech: ", result.getResolvedQuery());
 
