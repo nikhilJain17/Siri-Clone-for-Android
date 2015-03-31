@@ -4,14 +4,27 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 
 public class MainActivity extends Activity {
+
+    TextView userWordsTV;       // TextView for holding the user's speech
+    TextView computerWordsTV;   // TextView for holding the computer's reply
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Initialize the two TextViews
+        userWordsTV = (TextView) findViewById(R.id.userWords);
+        computerWordsTV = (TextView) findViewById(R.id.computerWords);
+
     }
 
 
@@ -21,6 +34,7 @@ public class MainActivity extends Activity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -32,5 +46,19 @@ public class MainActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+    // The onClick listener for the blue microphone button
+    public void onBlueMicClick(View view) {
+
+
+    // Listen for the inputs
+    // Figure out what to do with them
+           // eg. Call Joe, Text 333-3333, etc...
+
+
+
+
     }
 }
