@@ -2,6 +2,8 @@ package com.hello.learning.siriclone;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -56,9 +58,9 @@ public class MainActivity extends Activity implements AIListener {
     // The onClick listener for the blue microphone button
     public void onBlueMicClick(View view) {
 
-        // Reset the computer's words for a new query
+        // Reset both text boxes for a new query
         computerWordsTV.setText("");
-
+        userWordsTV.setText("");
 
     // Listen for the inputs
     // Figure out what to do with them
@@ -97,9 +99,39 @@ public class MainActivity extends Activity implements AIListener {
 
             // Now, start interpreting the speech and executing commands based on it.
 
+            if (userSpeechStr.contains("call")) {
+                // Implicit intent for calling
+
+                callImplicitIntent(userSpeechStr);
+
+//                Intent callIntent = new Intent(Intent.ACTION_DIAL);
+//                callIntent.setData(Uri.parse("tel:" + "7326629001"));
+//
+//                // If there is an activity that can process the request
+//                if (callIntent.resolveActivity(getPackageManager()) != null)
+//                    startActivity(callIntent);
+
+            }
+
 
         }
 
+
+    }
+
+    public void callImplicitIntent(String userSpeechStr) {
+
+        // Implicit intent for calling
+
+
+        // Add logic for extracting number here... would be nice feature
+
+        Intent callIntent = new Intent(Intent.ACTION_DIAL);
+        callIntent.setData(Uri.parse("tel:" + ""));             // This preloads the dialer with numbers
+
+        // If there is an activity that can process the request
+        if (callIntent.resolveActivity(getPackageManager()) != null)
+            startActivity(callIntent);
 
     }
 
