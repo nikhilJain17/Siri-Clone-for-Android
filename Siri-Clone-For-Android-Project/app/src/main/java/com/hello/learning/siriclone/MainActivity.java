@@ -99,19 +99,20 @@ public class MainActivity extends Activity implements AIListener {
 
             // Now, start interpreting the speech and executing commands based on it.
 
-            if (userSpeechStr.contains("call")) {
-                // Implicit intent for calling
+            if (userSpeechStr.contains("call") || userSpeechStr.contains("dial")) {
 
-                callImplicitIntent(userSpeechStr);
-
-//                Intent callIntent = new Intent(Intent.ACTION_DIAL);
-//                callIntent.setData(Uri.parse("tel:" + "7326629001"));
-//
-//                // If there is an activity that can process the request
-//                if (callIntent.resolveActivity(getPackageManager()) != null)
-//                    startActivity(callIntent);
+                // The dialer/call function now starts
+                call(userSpeechStr);
 
             }
+
+            else if (userSpeechStr.contains("text") || userSpeechStr.contains("send")) {
+
+                // send functin
+                text();
+
+            }
+
 
 
         }
@@ -119,19 +120,51 @@ public class MainActivity extends Activity implements AIListener {
 
     }
 
-    public void callImplicitIntent(String userSpeechStr) {
-
-        // Implicit intent for calling
+    public void call(String userSpeechStr) {
 
 
-        // Add logic for extracting number here... would be nice feature
+        // Add logic for extracting number here... would be a cool feature
+        // maybe ask the user????
+
+        // Need to incorporate the computer and the user in a conversation
 
         Intent callIntent = new Intent(Intent.ACTION_DIAL);
         callIntent.setData(Uri.parse("tel:" + ""));             // This preloads the dialer with numbers
 
         // If there is an activity that can process the request
-        if (callIntent.resolveActivity(getPackageManager()) != null)
+        if (callIntent.resolveActivity(getPackageManager()) != null) {
             startActivity(callIntent);
+        }
+        else
+            computerWordsTV.setText("Sorry, I can't find an app to do this.");
+
+    }
+
+    public void text(){
+
+        // Send a (Text/email?)
+
+        Intent textIntent = new Intent(Intent.ACTION_SEND); // doesnt specify who to send to
+
+        // This holds the text... need to parse user inputs
+        textIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+        textIntent.setType("text/plain");
+
+
+
+        // if there is an activity that can process the request
+        if (textIntent.resolveActivity(getPackageManager()) != null) {
+
+//            startActivity(Intent.createChooser(sendIntent, getResources().getText(R.string.send_to)));
+
+            // Shows picker/chooser
+            startActivity(Intent.createChooser(textIntent, "What app do you want to use?"));
+
+
+        }
+
+        else
+            computerWordsTV.setText("Sorry, I can't find an app to do that");
 
     }
 

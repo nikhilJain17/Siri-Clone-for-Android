@@ -24,13 +24,12 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text=""
         android:id="@+id/userWords"
-        android:layout_below="@+id/buttonImageView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="34dp"
         android:padding="15dp"
         android:background="#b686e7ff"
-        android:textSize="15pt"/>
+        android:textSize="15pt"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -39,14 +38,14 @@
         android:text=""
         android:textSize="15pt"
         android:id="@+id/computerWords"
-        android:layout_below="@+id/userWords"
+        android:padding="15dp"
+        android:background="#a73481fa"
+        android:layout_below="@+id/buttonImageView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="36dp"
-        android:layout_alignParentBottom="true"
+        android:layout_marginTop="42dp"
+        android:layout_above="@+id/userWords"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:padding="15dp"
-        android:background="#a73481fa" />
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
